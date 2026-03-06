@@ -5,13 +5,8 @@ const path = require('path');
 
 const app = express();
 
-// ===== CORS HABILITADO =====
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    credentials: true
-}));
-
+// ===== CORS SIMPLE =====
+app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 // Archivos de datos
