@@ -4,8 +4,15 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-app.use(express.json());
-app.use(cors());
+
+// ===== CORS HABILITADO =====
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    credentials: true
+}));
+
+app.use(express.json({ limit: '50mb' }));
 
 // Archivos de datos
 const USUARIOS_FILE = 'usuarios.json';
